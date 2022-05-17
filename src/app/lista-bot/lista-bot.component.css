@@ -1,0 +1,106 @@
+.mainContainer{
+    min-height: 100vh;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(220, 230, 232, 1) 100%);
+}
+
+.link{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.headerTitle{
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.createBotButton{
+    width: 500px;
+    max-width: 90vw;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+    background-color: #197278;
+    color: white;
+    border-radius: 25px;
+}
+
+.headerImage{
+    height: 150px;
+    width: 150px;
+    margin-bottom: 50px;
+    -webkit-animation:jump 1.5s ease-in 0s 3 normal;
+        -moz-animation:jump 1.5s ease-in 0s 3 normal;
+        -ms-animation:jump 1.5s ease-in 0s 3 normal;
+        animation:jump 1.5s ease-in 0s 3 normal;
+}
+    
+@-webkit-keyframes jump{
+0%{ -webkit-transform:translateY(0); transform:translateY(0); }
+20%{ -webkit-transform:translateY(0); transform:translateY(0); }
+40%{ -webkit-transform:translateY(-30px); transform:translateY(-30px); }
+50%{ -webkit-transform:translateY(0); transform:translateY(0); }
+60%{ -webkit-transform:translateY(-15px); transform:translateY(-15px); }
+80%{ -webkit-transform:translateY(0); transform:translateY(0); }
+100%{ -webkit-transform:translateY(0);transform:translateY(0); }
+}
+
+@keyframes jump{
+0%{ transform:translateY(0); }
+20%{ transform:translateY(0); }
+40%{ transform:translateY(-30px); }
+50%{ transform:translateY(0); }
+60%{ transform:translateY(-15px); }
+80%{ transform:translateY(0); }
+100%{ transform:translateY(0); }
+}
+
+@media screen and (max-width: 1020px) {
+    .headerTitle{
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .createBotButton{
+        width: 500px;
+        max-width: 90vw;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 15px;
+        background-color:#197278;
+    }
+    
+    .headerImage{
+        height: 100px;
+        width: 100px;
+        margin-bottom: 20px;
+        -webkit-animation:jump 1.5s ease-in 0s 3 normal;
+        -moz-animation:jump 1.5s ease-in 0s 3 normal;
+        -ms-animation:jump 1.5s ease-in 0s 3 normal;
+        animation:jump 1.5s ease-in 0s 3 normal;
+    }
+}
+
+.customCornerButton{
+    background-color: #197278;
+    color: white;
+    padding: 10px 30px 10px 30px;
+    width: 200px;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+.modalButton{
+    background-color: #197278;
+    color: white;
+    padding: 10px 30px 10px 30px;
+    width: 200px;
+    border-radius: 15px;
+    font-size: 18px;
+}

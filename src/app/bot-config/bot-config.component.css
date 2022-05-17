@@ -1,0 +1,33 @@
+.square{
+    border: 1px solid #000 ;
+    width: 50%;
+    box-shadow: #000 0px 0px 5px;
+    padding: 3%;
+    margin-bottom: 3%;
+}
+.mainContainer{
+    min-height: 100vh;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(220, 230, 232, 1) 100%);
+}
+
+.titleText {
+    font-size: 4.0em;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-top: 2%;
+    color: #197278;
+}
+.btn {
+    width: 40%;
+    margin-top: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 20px;
+    margin-right: 5px;
+    background-color: #197278;
+    border-radius: 25px;
+}
+
+

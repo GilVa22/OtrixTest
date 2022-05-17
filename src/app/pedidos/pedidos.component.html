@@ -1,0 +1,27 @@
+<div class="mainContainer">
+  <div class="container page" style="padding-top: 80px;">
+  <div class="row">
+    <div *ngIf="pedidos.length>0" class="pedidos" >
+      <a  *ngFor="let pedido of pedidos" id="pedido" class="link">
+        <app-pedido-carta
+        [idPedido]="pedido.id"
+        [idBot]= "pedido.idBot"
+        [idCustomer]="pedido.idCostumer"
+        [date]="pedido.createdAt"
+        [file]="pedido.url"
+        >
+        
+        ></app-pedido-carta>
+      </a>
+    </div>
+      <div *ngIf="pedidos.length<=0" class="d-flex align-items-center justify-content-center mt-5" >
+        <div>
+          <div class="d-flex align-items-center justify-content-center">
+            <img class="headerImage" src="../../assets/sad.png">
+          </div>       
+        <div class="headerTitle">No tienes pedidos</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

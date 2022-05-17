@@ -1,0 +1,157 @@
+.mainContainer {
+    min-height: 100vh;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(220, 230, 232, 1) 100%);
+}
+
+.titleText {
+    font-size: 4.0em;
+    font-weight: bold;
+    color: #197278;
+    text-align: center;
+}
+
+.subTitleText {
+    font-size: 3.2em;
+
+    color: #197278;
+    text-align: center;
+}
+
+.subText {
+    font-size: 1.5em;
+    color: rgb(8, 8, 8);
+    text-align: center;
+}
+
+.box {
+    width: 80%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    outline: 3px solid rgb(0, 0, 0);
+}
+
+.metricasTitle {
+    text-align: center;
+}
+
+.metricasValue {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #197278
+}
+
+.btn {
+    width: 30%;
+    display: block;
+    margin: auto;
+}
+
+.grafica {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.comBox {
+    width: 100%;
+    padding: 20px;
+    margin-top: 30px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(131, 131, 131);
+    max-height: 730px;
+    overflow-y: auto;
+    min-height: 730px;
+    background-color: white !important;
+
+}
+
+.comBox::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.comBoxBottom {
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(131, 131, 131);
+    margin-bottom: 15px;
+    height: 433px;
+    background-color: white !important;
+
+}
+
+.grafBox {
+    margin-top: 30px;
+    width: 100%;
+    height: 730px;
+    padding: 20px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(131, 131, 131);
+    background-color: white !important;
+}
+
+.grafBoxPie {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin-bottom: 50px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(131, 131, 131);
+    min-height: 433px;
+    background-color: white !important;
+}
+
+.comentario {
+    font-size: 1.5em;
+    color: rgb(8, 8, 8);
+    font-family: '';
+
+}
+
+.score {
+    font-size: 4.5em;
+    color: #197278;
+    font-family: '';
+    text-align: center;
+}
+
+.bottomText {
+    font-size: 4.0em;
+    color: rgb(8, 8, 8);
+    font-family: '';
+    text-align: center;
+}
+
+.line {
+    border-right: solid rgb(0, 0, 0) 2px;
+}
+
+.selectOp {
+    max-width: 150px;
+    margin-top: 30px;
+}
+.noComments{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+}
+.numberInfo{
+    color: #197278;
+}

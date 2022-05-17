@@ -1,0 +1,77 @@
+<div>
+    <mat-toolbar class="mainMenu">
+        <span routerLink="/">
+            <img src="../../assets/logo.png" class="logo">
+        </span>
+
+        <div class="loginContainer">
+            <span class="floatRight loginButton " [routerLink]="['/login']">Login</span>
+        </div>
+    </mat-toolbar>
+
+    <mat-toolbar class="botMenu ">
+        <div *ngIf="!navRoute" class="col-lg-5 btnOptCont">
+            <span class="botBtn">
+                Productos
+            </span>
+
+            <span class="botBtn">
+                Clientes
+            </span>
+
+            <span class="botBtn">
+                Precios
+            </span>
+            <span class="botBtn">
+                Métricas
+            </span>
+
+            <span class="botBtn">
+                Pedidos
+            </span>
+
+            <span class="botBtn">
+                Configuración
+            </span>
+        </div>
+
+        <div *ngIf="navRoute" class="col-lg-5 btnOptCont ">
+            <span class="botBtn"routerLink="/productos">
+                Productos
+            </span>
+
+            <span class="botBtn"routerLink="/clientes">
+                Clientes
+            </span>
+
+            <span class="botBtn"routerLink="/precios">
+                Precios
+            </span>
+            <span class="botBtn"routerLink="/metricas">
+                Métricas
+            </span>
+
+            <span class="botBtn"routerLink="/pedidos">
+                Pedidos
+            </span>
+
+            <span class="botBtn"routerLink="/configuracion">
+                Configuración
+            </span>
+        </div>
+
+        <div class="col-lg-2">
+            <div class="mt-3  text-white textContainer align-middle">
+                <p class="text align-middle"> Bot actual: {{idBot}} </p>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <span class="floatRight botBtn" (click)="cerrarSesion()">Logout</span>
+            <span class="floatRight botBtn" [routerLink]="['/lista-bot']">Mis bots</span>
+        </div>
+    </mat-toolbar>
+    <router-outlet>
+
+    </router-outlet>
+</div>

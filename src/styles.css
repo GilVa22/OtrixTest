@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.responsiveImage {
+    max-width: 100%;
+    height: auto;
+}
+
+.centerText{
+    text-align: center;
+}
+
+
+.colTitle {
+    font-size: 50px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.colSubtitle {
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 80% !important;
+}
+
+.colButton {
+    width: 150px;
+    margin-top: 30px !important;
+}

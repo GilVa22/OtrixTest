@@ -1,0 +1,24 @@
+<div class="card customCard" id="botCard">
+  <div class="card-header">
+    <div class="row">
+      <div class="col">
+        <p class="card-text">{{ name }}</p>
+      </div>
+      <div class="col">
+        <p class="card-text"  style="float: right; font-size: 13px;">Creado {{ date }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="card-text">{{ desc }}</p>
+        <p class="card-text"><a target="_blank" href="https://{{ currentUrl }}/chatBot/{{ key }}">https://{{ currentUrl }}/chatBot/{{ key }}</a></p>
+        <p class="card-text">{{ loc1 }}, {{ loc2 }}</p>
+      </div>
+      <div class="col-md-12">
+        <button class="botButton{{ id }} cardButton">Ver bot</button>
+      </div>
+    </div>
+  </div>
+</div>

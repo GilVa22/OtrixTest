@@ -1,0 +1,56 @@
+<div class="mainContainer">
+    <div class="container-fluid" style="padding-top: 80px">
+        <div class="row">
+            <h1 class="titleText">Configuración</h1>
+        </div>
+        <div class="row d-flex align-items-center justify-content-center mt-3 ">
+            <div class="square">
+                <div class="container">
+                    <div class="row mt-2">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Nombre del bot</mat-label>
+                            <input required ngModel="{{userData.name}}"  name="name" #name="ngModel" id="name" (change)="setName(name.viewModel)" matInput
+                                placeholder="Nombre único"/>
+                        </mat-form-field>
+                    </div>
+    
+                    <div class="row">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Slug</mat-label>
+                            <input required ngModel="{{userData.urlKey}}" name="urlKey" #urlKey="ngModel" id="urlKey" (change)="setURLKEY(urlKey.viewModel)"
+                                matInput placeholder="Así te verán tus clientes" />
+                        </mat-form-field>
+                    </div>
+    
+                    <div class="row">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Descripción</mat-label>
+                            <textarea required ngModel="{{userData.description}}" ngModelname="descripcion" #descripcion="ngModel" id="descripcion"
+                                (change)="setDesc(descripcion.viewModel)" matInput placeholder="Función del bot" rows="8"></textarea>
+                        </mat-form-field>
+                    </div>
+    
+                    <h5>Datos de la empresa para los tickets</h5>
+                    <div class="row">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Dirección 1</mat-label>
+                            <input required ngModel="{{userData.address1}}" ngModelname="dir1" #dir1="ngModel" id="dir1" (change)="setLoc1(dir1.viewModel)"
+                                matInput placeholder="123 Main Street" />
+                        </mat-form-field>
+                    </div>
+    
+                    <div class="row">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Dirección 2</mat-label>
+                            <input required ngModel="{{userData.address2}}" ngModelname="dir2" #dir2="ngModel" id="dir2" (change)="setLoc2(dir2.viewModel)"
+                                matInput placeholder="New York, NY, 10025" />
+                        </mat-form-field>
+                    </div>
+                    <div class="row d-flex align-items-center justify-content-end" >
+                        <button mat-raised-button class="btn btn-dark btn-md createBotButton" (click)="setConfig()" >Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,179 @@
+<div class="mainContainer">
+  <div class="container-fluid" style="width: 90%; padding-top: 80px;">
+    <div class="row mb-3">
+      <h5 class="titleText">Métricas</h5>
+      <p class="subText mt-4">Revisa el rendimiento de tu Bot</p>
+    </div>
+    <!--Gráficas-->
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="grafBox">
+          <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-3 line">
+              <p class="metricasTitle">Interacciones Totales</p>
+              <p
+                [countUp]="interacciones"
+                [options]="myOpt"
+                class="metricasValue"
+              >
+                0
+              </p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 line">
+              <p class="metricasTitle">Calificación Global</p>
+              <!--DECIMAL-->
+              <p [countUp]="calif" [options]="myOptDecimal" class="metricasValue">
+                0
+              </p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 line">
+              <p class="metricasTitle">Ventas Totales</p>
+              <p [countUp]="ventasT" [options]="myOpt" class="metricasValue">
+                0
+              </p>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3">
+              <p class="metricasTitle">Ventas Hoy</p>
+              <p [countUp]="ventasH" [options]="myOpt" class="metricasValue">
+                0
+              </p>
+            </div>
+          </div>
+          <div class="row d-flex align-items-center justify-content-center">
+            <div
+              class="col-sm12 col-md-12 col-lg-12 d-flex align-items-center justify-content-center"
+            >
+              <mat-select
+                placeholder="Interacciones"
+                (selectionChange)="cambiarGraf()"
+                [(value)]="opSelec"
+                class="selectOp"
+              >
+                <mat-option value="0">Interacciones</mat-option>
+                <mat-option value="1">Calificaciones</mat-option>
+                <mat-option value="2">Ventas</mat-option>
+              </mat-select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="grafica">
+              <ngx-charts-line-chart
+                (window:resize)="onResize($event)"
+                [view]="view"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxis]="xAxis"
+                [yAxis]="yAxis"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel"
+                [timeline]="timeline"
+                [results]="multi"
+                [customColors]="colors"
+                [roundDomains]="roundDomains"
+                (select)="onSelect($event)"
+                (activate)="onActivate($event)"
+                (deactivate)="onDeactivate($event)"
+              >
+              </ngx-charts-line-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div class="comBox">
+          <div>
+            <p class="subTitleText">Comentarios</p>
+          </div>
+          <div *ngIf="comments.length === 0">
+            <div class="noComments">
+              No hay comentarios
+            </div>
+          </div>
+          <div>
+          <div class="" *ngFor="let com of comments">
+            <div>
+              <div class="row">
+                <div
+                  class="col-sm-3 col-md-3 col-lg-3 d-flex align-items-center justify-content-center"
+                >
+                  <p
+                    class="score d-flex align-items-center justify-content-center"
+                  >
+                    {{ com.rating }}
+                  </p>
+                </div>
+                <div class="col-sm-9 col-md-9 col-lg-9" style="margin-top: 10px">
+                  <p class="comentario">"{{ com.comment }}"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div class="comBoxBottom">
+          <div>
+            <p class="subTitleText">Información</p>
+          </div>
+          <div class="row">
+            <div
+              class="col-sm-5 col-md-5 col-lg-5 d-flex align-items-center justify-content-center"
+            >
+              <p
+                class="bottomText d-flex align-items-center justify-content-center numberInfo"
+                [countUp]="nClientes"
+              ></p>
+            </div>
+            <div class="col-sm-7 col-md-7 col-lg-7" style="margin-top: 10px">
+              <p class="comentario">Clientes</p>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div
+              class="col-sm-5 col-md-5 col-lg-5 d-flex align-items-center justify-content-center "
+            >
+              <p
+                class="bottomText d-flex align-items-center justify-content-center numberInfo"
+                [countUp]="nProductos"
+              ></p>
+            </div>
+            <div class="col-sm-7 col-md-7 col-lg-7" style="margin-top: 10px">
+              <p class="comentario">Productos</p>
+            </div>
+          </div>
+  
+  
+        </div>
+      </div>
+  
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="grafBoxPie">
+          <div>
+            <p class="subTitleText">Calificaciones</p>
+          </div>
+          <div class="noComments" *ngIf="single.length===0">Aún no te han calificado</div>
+          <div *ngIf="single.length>0">
+          <ngx-charts-advanced-pie-chart
+          
+            (window:resize)="onResize($event)"
+            [view]="viewPie"
+            [customColors]="colors"
+            [results]="single"
+            [gradient]="gradient"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+          >
+          </ngx-charts-advanced-pie-chart>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

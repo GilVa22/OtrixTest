@@ -1,0 +1,132 @@
+<div>
+  <button style="position:absolute; top: 10px; right:10px; z-index: 1054; padding: 4px 20px 0px 20px; background-color: #3366ff; border-radius: 15px; border: none;" *ngIf="jwt!==null; else message" (click)="handleProd(content)"><span class='material-icons' style="color: white !important;">shopping_cart</span></button>
+  <nb-layout style="padding: 0px !important;">
+    <nb-layout-column style="padding: 0px !important;">
+      <div>
+        <ng-template #message></ng-template>
+        
+        <ng-template #content let-modal class="mod" style="z-index: 999999;">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+              Seleccionar productos
+            </h4>
+            <button
+              type="button"
+              class="btn-close btn btn-dark btn-lg"
+              aria-label="Close"
+              #closeModal
+              (click)="modal.dismiss('Cross click')"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Producto</p>
+            <!--For each producto-->
+            <div class="products">
+              <input
+                [(ngModel)]="searchText"
+                id="SB"
+                type="text"
+                class="form-control"
+                name="search"
+                autocomplete="off"
+              />
+              <div *ngFor="let cat of split; let i = index">
+                <mat-accordion>
+                  <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <p class="">{{ cat[0].category }}</p> 
+                      </mat-panel-title>
+                      <mat-panel-description style="width: 100%; float:right !important; display:block">
+                        <div class="badge bg-primary rounded-pill text-center " style="width: 50px; float: right !important"> {{ cat.length }}</div>
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div
+                      *ngFor="let product of cat | filter: searchText"
+                      id="prod"
+                      class=""
+                    >
+                      <!--Quiero realizar un pedido-->
+                      <div class="row">
+                        <!--Checkbox-->
+                        <div class="col d-flex align-items-center" >
+                          <div class="checkbox">
+                            <mat-checkbox
+                              type="checkbox"
+                              name="product"
+                              [color]="'primary'"
+                              [(ngModel)]="product.selected"
+                              >{{ product.name }}</mat-checkbox
+                            >
+                          </div>
+                        </div>
+  
+                        <div class="col" style="font-size: 12px">
+                          <mat-form-field
+                            *ngIf="product.selected; else message"
+                            appearance="fill"
+                          >
+                            <mat-label>Cantidad</mat-label>
+                            <input
+                              matInput
+                              placeholder="{{product.cantidad}}"
+                              ngModel
+                              cant="cant"
+                              #cant="ngModel"
+                              size="small"
+                              id="cant"
+                              [(ngModel)]="product.cantidad"
+                              (keypress)="numberOnly($event)"
+                              (change)="setCantidad(product.instanceId, cant)"
+                            />
+                          </mat-form-field>
+                          <ng-template #message></ng-template>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" style="background-color: #3366ff; color: white; border-radius: 25px;" class="btn btn-lg" (click)="mostrarDialogo()" (click)="modal.dismiss('Cross click')">Realizar el pedido</button>
+          </div>
+        </ng-template>
+        <nb-chat title="OTRIX" size="giant"  style="width: 100vw; height: 100vh"  >
+  
+          <div *nbCustomMessage="'button'; let buttonText">
+            <p class="text-control button-custom-message-text">
+              Selecciona una calificación y deja un comentario
+            </p>
+            <span nbButton status="primary"  (click)="handleCalif(1)" style="padding: 0px 10px 0px 10px; margin-right: 5px; background-color: white; color: #3366ff; border-radius: 25px; border: none !important;" className="d-flex align-items-center justify-content-center"><div>1</div></span>
+            <span nbButton status="primary"  (click)="handleCalif(2)" style="padding: 0px 10px 0px 10px; margin-right: 5px; background-color: white; color: #3366ff; border-radius: 25px; border: none !important;" className="d-flex align-items-center justify-content-center"><div>2</div></span>
+            <span nbButton status="primary"  (click)="handleCalif(3)" style="padding: 0px 10px 0px 10px; margin-right: 5px; background-color: white; color: #3366ff; border-radius: 25px; border: none !important;" className="d-flex align-items-center justify-content-center"><div>3</div></span>
+            <span nbButton status="primary"  (click)="handleCalif(4)" style="padding: 0px 10px 0px 10px; margin-right: 5px; background-color: white; color: #3366ff; border-radius: 25px; border: none !important;" className="d-flex align-items-center justify-content-center"><div>4</div></span>
+            <span nbButton status="primary"  (click)="handleCalif(5)" style="padding: 0px 10px 0px 10px; margin-right: 5px; background-color: white; color: #3366ff; border-radius: 25px; border: none !important;" className="d-flex align-items-center justify-content-center"><div>5</div></span>
+          </div>
+          <div *nbCustomMessage="'Lista Prod'; let buttonText">
+            <button (click)="handleProd(content)" style="padding: 3px 10px 3px 10px; background-color: white; color: #3366ff; border-radius: 25px; border: none !important;">Ver Productos</button>
+          </div>
+          <nb-chat-message
+            *ngFor="let msg of messages"
+            [type]="msg.type"
+            [message]="msg.text"
+            [reply]="msg.reply"
+            [sender]="msg.user.name"
+            [date]="msg.date"
+            [files]="msg.files"
+            [avatar]="msg.user.avatar"
+            [customMessageData]="msg.customMessageData"
+          >
+          </nb-chat-message>
+  
+  
+          <nb-chat-form (send)="sendMessage($event)" [dropFiles]="true">
+          </nb-chat-form>
+        </nb-chat>
+      </div>
+    </nb-layout-column>
+  </nb-layout>
+  
+</div>

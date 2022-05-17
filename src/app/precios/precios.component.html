@@ -1,0 +1,124 @@
+<div class="mainContainer">
+    <div class="container-fluid page" style="padding-top: 80px;">
+        <!-- Titulo de la pagina -->
+        <div class="row mt-5 mb-5">
+            <div class="col-12">
+                <h5 class="titleText">Lista de precios</h5>
+                <p class="subText mt-4">
+                    Aqui se pueden configurar las listas de precios para cada cliente
+                </p>
+            </div>
+        </div>
+
+        <div class ="row">
+            <!--JSON-->
+            <div class="col">
+                <prettyjson [obj]="prodJSONExample" class="jsonbox">
+                </prettyjson>
+                </div>
+                <div class="col">
+                <prettyjson [obj]="cliJSONExample" class="jsonbox">
+                </prettyjson>
+            </div>
+        </div>
+        <div class="row">
+
+            <!--PRODUCTOS-->
+            <div class="col-sm-12 col-md-6 col-lg-6">
+
+                <div class="row">
+                    <span class="subtitleText">Subir lista de Precios</span>
+                </div>
+                <div class="row">
+                    <mat-form-field class="textBox fullWidth" floatLabel="always" appearance="outline">
+                        <mat-label></mat-label>
+                        <textarea matInput ngModel name="JSONPrecios" #JSONPrecios="ngModel" id="JSONPrecios"
+                            (change)="setJSONPre(JSONPrecios)" rows="15"></textarea>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button class="btn btn-dark btn-lg createBotButton" (click)="subirJsonPrecios()">
+                    Subir Prodcutos
+                </button>
+
+
+                <div class="row" *ngIf="true">
+                    <div>
+                        <table class="table table-striped mb-5">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID Producto</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">IEPS</th>
+                                    <th scope="col">Proveedor</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let pre of preciosLis" id="pre">
+
+                                    <td>{{ pre.id }}</td>
+                                    <td>{{ pre.item }}</td>
+                                    <td>{{ pre.precio }}</td>
+                                    <td>{{ pre.ieps }}</td>
+                                    <td>{{ pre.supplier }}</td>
+                                    <th scope="col">
+                                        <img class="trashIcon" src="../../assets/trash.svg"
+                                            (click)="deleteProducto(pre.instanceId)" />
+                                        <span class="delText" (click)="deleteProducto(pre.instanceId)">Eliminar</span>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!--CLIENTES-->
+            <div class="col-sm-12 col-md-6 col-lg-6">
+
+                <div class="row">
+                    <span class="subtitleText">Subir lista de Clientes</span>
+                </div>
+                <div class="row">
+                    <mat-form-field class="textBox fullWidth" floatLabel="always" appearance="outline">
+                        <mat-label></mat-label>
+                        <textarea matInput ngModel name="JSONClientes" #JSONClientes="ngModel" id="JSONClientes"
+                            (change)="setJSONCli(JSONClientes)" rows="15"></textarea>
+                    </mat-form-field>
+                </div>
+                <button mat-raised-button class="btn createBotButton" (click)="subirJsonClientes()">
+                    Subir Clientes
+                </button>
+                <div class="row" *ngIf="true">
+                    <div>
+                        <table class="table table-striped mb-5">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID Cliente</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Número de cliente</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cli of clientesLis" id="pre">
+
+                                    <td>{{ cli.id }}</td>
+                                    <td>{{ cli.name }}</td>
+                                    <td>{{ cli.numClient }}</td>
+                                    <th scope="col">
+                                        <img class="trashIcon" src="../../assets/trash.svg"
+                                            (click)="deleteCliente(cli.instanceId)" />
+                                        <span class="delText" (click)="deleteCliente(cli.instanceId)">Eliminar</span>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

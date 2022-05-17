@@ -1,0 +1,90 @@
+.hero {
+    min-height: 100vh;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(220, 230, 232, 1) 100%);
+}
+
+.miniHero {
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(220, 230, 232, 1) 100%);
+}
+
+.icon {
+    height: 150px;
+}
+
+.title {
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid #197278;
+    /* The typwriter cursor */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    letter-spacing: .10em;
+    /* Adjust as needed */
+    animation:
+        typing 1.8s steps(40, end),
+        blink-caret .75s step-end infinite;
+    width: fit-content;
+    font-weight: 800;
+}
+
+.subtitle{
+    margin-top: 20px;
+}
+
+.banner{
+    background-color: #197278;
+    padding: 20px 0px 20px 0px;
+    color: white;
+    font-size: 40px;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+/* The title cursor effect */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #197278;
+    }
+}
+
+.createBotButton {
+    background-color: #197278;
+    color: white;
+    padding: 10px 30px 10px 30px;
+    width: 200px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+@media (max-width: 1080px) {
+    .title {
+        margin-top: 120px;
+    }
+    .listTitle {
+        margin-top: 50px;
+    }
+    .hideOnMobile{
+        visibility: hidden;
+        display: none !important;
+    }
+    .miniHero{
+        padding-bottom: 20px;
+    }
+}

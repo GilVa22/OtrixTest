@@ -1,0 +1,33 @@
+<div class="mainContainer d-flex align-items-center justify-content-center">
+    <div class="container content d-flex align-items-center justify-content-center ">
+        <div class="row">
+            <div class="col-lg leftCol d-flex align-items-center">
+                <div style="width: 100%">
+                    <h1 class="title">
+                        Inicia sesión
+                    </h1>
+                    <mat-form-field appearance="fill" style="width: 100%">
+                        <mat-label>Correo electrónico</mat-label>
+                        <input required ngModel name="user" #user="ngModel" id="user" (change)="setUsuario(user)"
+                            matInput placeholder="Ej. persona@indautosoft.com">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width: 100%">
+                        <mat-label>Contraseña</mat-label>
+                        <input name="password" id="password" matInput required ngModel #password="ngModel"
+                            (change)="setPassword(password)" matInput [type]="hide ? 'password' : 'text'"
+                            placeholder="Ej. *************">
+                    </mat-form-field>
+                    <div class="col-12 colTitle">
+                        <button mat-raised-button (click)="handleSubmit()"
+                         class="btn btn-lg createBotButton">Login</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg rightColumn hideOnMobile">
+                <div class="rightColumn">
+                    <img class="helperImage responsiveImage" src="../../assets/loginImage.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+.createBotButton {
+    background-color: #197278;
+    color: white;
+    padding: 10px 30px 10px 30px;
+    width: 100%;
+    border-radius: 15px;
+    font-size: 20px;
+
+}
+
+.mainContainer{
+    min-height: 100vh;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(220, 230, 232, 1) 100%);
+}
+
+.title{
+    font-size: 40px;
+}
+
+.content{
+    -webkit-box-shadow: 0px 0px 7px 5px rgba(0,0,0,0.75); 
+    box-shadow: 0px 0px 7px 5px rgba(0,0,0,0.75);
+    min-height: 70vh;
+    margin-top: 60px;
+}
+
+.leftCol{
+    background-color: white;
+    min-height: 70vh;
+}
+
+.rightColumn{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.helperImage{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    margin: none !important;
+    padding: none !important;
+}
+
+@media (max-width: 1080px) {
+    .hideOnMobile{
+        visibility: hidden;
+        display: none !important;
+    }
+    .content{
+        margin: 0px 10px 0px 10px;
+    }
+}

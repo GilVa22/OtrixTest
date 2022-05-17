@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md d-flex align-items-center colContainer">
+            <div class="row">
+                <h1 class="col-12 colTitle">
+                    Inicia sesión
+                </h1>
+                <mat-form-field appearance="fill" #userField>
+                    <mat-label>Email</mat-label>
+                    <input matInput required ngModel name="user" #user="ngModel" id="user" (change)="setUsuario(user)" placeholder="Just a placeholder">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" #userField>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput required ngModel name="name" #name="ngModel" id="name" (change)="setNombre(name)" placeholder="Escriba su nombre">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill"  #passField >
+                    <mat-label>Contraseña</mat-label>
+                    <input name="password" id="password" matInput required ngModel  #password="ngModel"  (change)="setPassword(password)" [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill"  #passField >
+                    <mat-label>Clave privada</mat-label>
+                    <input name="clave" id="clave" matInput required ngModel  #clave="ngModel"  (change)="setClave(clave)" [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <button mat-raised-button  (click)="handleSubmit()"  class="btn btn-dark btn-lg">Registrar</button>
+
+        </div>
+        <div class="col-md d-flex align-items-center justify-content-center colContainer">
+            <img class="responsiveImage" src="../../assets/placeholder.png">
+        </div>
+    </div>
+</div>

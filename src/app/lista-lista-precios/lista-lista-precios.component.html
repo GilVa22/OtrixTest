@@ -1,0 +1,66 @@
+<div class="mainContainer">
+    <div class="container" style="padding-top: 80px;">
+    <!--  MODAL  -->
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Crear Lista</h4>
+            <button type="button" class="btn-close btn btn-dark btn-lg" aria-label="Close"
+                (click)="modal.dismiss('Cross click')"></button>
+        </div>
+
+        <div class="modal-body">
+            <div class="row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre de la lista</mat-label>
+                    <input required ngModel name="name" #name="ngModel" id="name" (change)="setName(name)" matInput
+                        placeholder="Nombre único">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Descripción</mat-label>
+                    <textarea required ngModel ngModelname="descripcion" #descripcion="ngModel" id="descripcion"
+                        (change)="setDesc(descripcion)" matInput placeholder="Descripción de la lista "
+                        rows="8"></textarea>
+                </mat-form-field>
+            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn modalButton" (click)="newList()">Crear lista</button>
+        </div>
+        </div>
+    </ng-template>
+    <!--  MODAL  -->
+
+    <!--  HAS NO LISTAS  -->
+    <div *ngIf="listas.length===0" class="d-flex align-items-center justify-content-center" style="min-height:80vh">
+        <div>
+            <div class="d-flex align-items-center justify-content-center">
+                <img class="headerImage" src="../../assets/sad.png">
+            </div>
+            <div class="headerTitle">No tienes listas</div>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn createBotButton" (click)="open(content)">Crear
+                    Lista</button>
+            </div>
+        </div>
+    </div>
+    <!--  HAS NO LISTAS  -->
+
+    <!--  HAS LISTAS  -->
+    <div *ngIf="listas.length>0">
+        <div class="row">
+            <div class="col">
+                <button class="btn customCornerButton" (click)="open(content)"
+                    style="float: right !important; margin-top: 30px; max-width: 300px;">Crear nueva lista</button>
+            </div>
+        </div>
+        <div class="">
+            <a *ngFor="let lits of listas" id=bot class="link" >
+                <app-lista-precio-card [id]="lits.id" [name]="lits.name" [desc]="lits.description" [createdAt]="lits.createdAt" ></app-lista-precio-card>
+            </a>
+        </div>
+    </div>
+    <!-- HAS LISTAS -->
+</div>
+</div>
